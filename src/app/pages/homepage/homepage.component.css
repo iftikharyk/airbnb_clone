@@ -1,0 +1,116 @@
+/******* 
+******** landing page starts 
+*******/
+
+#landingpage-intro {
+    height: 100vh;
+    min-height: 650px;
+    max-height: 1500px;
+}
+
+.landingpage-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* landing form start */
+
+.landingpage-form {
+    width: 100%;
+    bottom: 0px;
+    top: 120px;
+    position: relative;
+    z-index: 5;
+}
+
+.landing-form-container {
+    display: table;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.landing-form-container-inner {
+    display: table-cell ;
+    vertical-align: middle ;
+}
+
+.landing-form-inner {
+    background-color: transparent;
+    margin: 0 auto ;
+    position: relative ;
+    max-width: 1760px ;
+    padding-right: 80px ;
+    padding-left: 80px ;
+    overflow-anchor: none ;
+}
+
+.landing-form-box {
+    background: #ffffff ;
+    border-radius: 4px ;
+    padding: 32px ;
+    padding-bottom: 24px ;
+    width: 441px ;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.12) ;
+}
+
+.landing-form-box-header {
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: normal;
+    color: #484848;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.landing-form-box-header h1 {
+    color: inherit ;
+    font-size: 1em ;
+    font-weight: bold ;
+    line-height: inherit ;
+    margin-bottom: 20px ;
+    padding: 0px ;
+}
+
+.landing-booking-form {
+    background: #ffffff ;
+    border-radius: 4px ;
+}
+
+/* landing form ends */
+
+/* landing background start */
+
+.landing-image-container {
+    display: inline-block;
+    vertical-align: bottom;
+    height: 100%;
+    width: 100%;
+    background-position: 50% 50% ;
+    background-repeat: no-repeat ;
+}
+
+.landingpage-image {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.landingpage-image img {
+    object-fit: cover;
+    vertical-align: bottom;
+    height: 100%;
+    width: 100%;
+    position: static;
+}
+
+/* landing background end */
+
+/******* 
+******** landing page ends 
+*******/
