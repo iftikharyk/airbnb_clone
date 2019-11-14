@@ -1,11 +1,38 @@
 /******* 
-******** landing page starts 
+******** Home page starts 
 *******/
 
 #landingpage-intro {
     height: 100vh;
     min-height: 650px;
     max-height: 1500px;
+}
+
+/* header.intro-header {
+    height: 81px;
+    width: 100%;
+    position: absolute;
+} */
+
+header.intro-header .intro-nav-container {
+    z-index: 5;
+}
+
+header.intro-header .intro-nav-container .intro-nav-inner {
+    border-spacing: 0px;
+}
+
+header.intro-header .intro-nav-links-button {
+    line-height: 80px;
+}
+
+header.intro-header .intro-nav-links-button .intro-nav-links-button-inner:hover {
+    border-bottom: 2px solid white;
+}
+
+header.intro-header .intro-nav-links-button .intro-nav-icon {
+    margin-right: 0.428571em;
+    top: 0.0714286em;
 }
 
 .landingpage-content {
@@ -111,6 +138,9 @@
 
 /* landing background end */
 
+
+
+
 /******* 
-******** landing page ends 
+******** Home page ends 
 *******/
