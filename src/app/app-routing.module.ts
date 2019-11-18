@@ -9,20 +9,20 @@ import { AdventuresComponent } from './pages/adventures/adventures.component';
 const routes: Routes = [
   {
     path: '',
+    component: AdventuresComponent
+  },
+  {
+    path: 'stays',
     component: StaysComponent
   },
-  // {
-  //   path: 'stays',
-  //   component: StaysComponent
-  // },
   {
     path: 'experiences',
     component: ExperiencesComponent
   },
-  {
-    path: 'adventures',
-    component: AdventuresComponent
-  },
+  // {
+  //   path: 'adventures',
+  //   component: AdventuresComponent
+  // },
   {
     path: 'restaurants',
     component: RestaurantsComponent
