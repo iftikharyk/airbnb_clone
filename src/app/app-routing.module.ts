@@ -9,7 +9,7 @@ import { AdventuresComponent } from './pages/adventures/adventures.component';
 const routes: Routes = [
   {
     path: '',
-    component: RestaurantsComponent
+    component: HomepageComponent
   },
   {
     path: 'stays',
