@@ -1,3 +1,907 @@
+<!-- Login modal Start -->
+<div class="modal-container fixed inset-0 overflow-y-auto" style="background: rgba(0, 0, 0, 0.75); z-index: 2000;"
+  *ngIf="openLoginModal == true">
+  <div class="table w-full h-full">
+    <div class="table-cell align-middle p-16">
+      <div class="modal-box bg-white w-full relative m-auto" style="max-width: 568px;">
+        <div class="p-8">
+          <!-- close button start -->
+          <div class="mb-5">
+            <button
+              class="cursor-pointer bg-transparent text-gray-700 block border-none w-8 h-8 p-2 shadow-md rounded-full"
+              (click)="closeLogin();">
+              <svg viewBox="0 0 24 24" role="img" aria-label="Close" focusable="false"
+                style="height: 16px; width: 16px; display: block; fill: rgb(118, 118, 118);">
+                <path
+                  d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22"
+                  fill-rule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+          <!-- close button end -->
+
+          <!-- social login start -->
+          <div class="social-button">
+            <div class="mb-2">
+              <form action="" method="post">
+                <input type="hidden" name="facebook-login">
+                <button type="submit"
+                  class="cursor-pointer relative inline-block text-center w-full text-base leading-tight py-3 px-5 font-semibold text-white no-underline rounded border border-solid border-transparent bg-blue-700">
+                  <span class="justify-center flex">
+                    <div class="inline-flex self-center">
+                      <div class="mr-3">
+                        <svg viewBox="0 0 32 32" role="presentation" aria-hidden="true" focusable="false"
+                          style="height: 18px; width: 18px; display: block; fill: currentcolor;">
+                          <path
+                            d="m8 14.41v-4.17c0-.42.35-.81.77-.81h2.52v-2.08c0-4.84 2.48-7.31 7.42-7.35 1.65 0 3.22.21 4.69.64.46.14.63.42.6.88l-.56 4.06c-.04.18-.14.35-.32.53-.21.11-.42.18-.63.14-.88-.25-1.78-.35-2.8-.35-1.4 0-1.61.28-1.61 1.73v1.8h4.52c.42 0 .81.42.81.88l-.35 4.17c0 .42-.35.71-.77.71h-4.21v16c0 .42-.35.81-.77.81h-5.21c-.42 0-.8-.39-.8-.81v-16h-2.52a.78.78 0 0 1 -.78-.78"
+                            fill-rule="evenodd"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="inline-flex self-center">Log in with Facebook</div>
+                  </span>
+                </button>
+              </form>
+            </div>
+            <div class="mb-1">
+              <form action="" method="post">
+                <input type="hidden" name="facebook-login">
+                <button type="submit"
+                  class="cursor-pointer relative inline-block text-center w-full text-base leading-tight py-3 px-5 font-semibold text-gray-700 no-underline rounded border border-solid border-gray-800">
+                  <span class="justify-center flex">
+                    <div class="inline-flex self-center">
+                      <div class="mr-3">
+                        <svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false"
+                          style="height: 18px; width: 18px; display: block;">
+                          <g fill="none" fill-rule="evenodd">
+                            <path
+                              d="M9 3.48c1.69 0 2.83.73 3.48 1.34l2.54-2.48C13.46.89 11.43 0 9 0 5.48 0 2.44 2.02.96 4.96l2.91 2.26C4.6 5.05 6.62 3.48 9 3.48z"
+                              fill="#EA4335"></path>
+                            <path
+                              d="M17.64 9.2c0-.74-.06-1.28-.19-1.84H9v3.34h4.96c-.1.83-.64 2.08-1.84 2.92l2.84 2.2c1.7-1.57 2.68-3.88 2.68-6.62z"
+                              fill="#4285F4"></path>
+                            <path
+                              d="M3.88 10.78A5.54 5.54 0 0 1 3.58 9c0-.62.11-1.22.29-1.78L.96 4.96A9.008 9.008 0 0 0 0 9c0 1.45.35 2.82.96 4.04l2.92-2.26z"
+                              fill="#FBBC05"></path>
+                            <path
+                              d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.84-2.2c-.76.53-1.78.9-3.12.9-2.38 0-4.4-1.57-5.12-3.74L.97 13.04C2.45 15.98 5.48 18 9 18z"
+                              fill="#34A853"></path>
+                            <path d="M0 0h18v18H0V0z"></path>
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="inline-flex self-center">Log in with Google</div>
+                  </span>
+                </button>
+              </form>
+            </div>
+          </div>
+          <!-- social login end -->
+
+          <div class="my-4">
+            <div class="text-center overflow-hidden">
+              <span class="relative">
+                <span class="truncate text-sm font-normal text-gray-500 m-0">or</span>
+              </span>
+            </div>
+          </div>
+
+          <form action="" method="post">
+            <input type="hidden" name="authenticity_token">
+            <div>
+              <div class="mb-4">
+                <div class="block w-full">
+                  <div class="bg-white relative z-0 block w-full border border-solid border-gray-400 rounded"
+                    style="height: 46px">
+                    <div class="float-right text-gray-700" style="margin-right: 10px;">
+                      <div class="visible" style="height: 46px;">
+                        <div class="table relative h-full">
+                          <div class="table-cell align-middle">
+                            <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false"
+                              style="height: 1em; width: 1em; display: block; fill: currentcolor;">
+                              <path
+                                d="m22.5 4h-21c-.83 0-1.5.67-1.5 1.51v12.99c0 .83.67 1.5 1.5 1.5h20.99a1.5 1.5 0 0 0 1.51-1.51v-12.98c0-.84-.67-1.51-1.5-1.51zm.5 14.2-6.14-7.91 6.14-4.66v12.58zm-.83-13.2-9.69 7.36c-.26.2-.72.2-.98 0l-9.67-7.36h20.35zm-21.17.63 6.14 4.67-6.14 7.88zm.63 13.37 6.3-8.1 2.97 2.26c.62.47 1.57.47 2.19 0l2.97-2.26 6.29 8.1z"
+                                fill-rule="evenodd"></path>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="overflow-hidden relative">
+                      <input type="email" class="border-none w-full m-0 focus:border-teal-700"
+                        placeholder="Email Address" style="padding: 10px;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-4">
+                <div class="block w-full">
+                  <div class="bg-white relative z-0 block w-full border border-solid border-gray-400 rounded"
+                    style="height: 46px">
+                    <div class="float-right text-gray-700" style="margin-right: 10px;">
+                      <div class="visible" style="height: 46px;">
+                        <div class="table relative h-full">
+                          <div class="table-cell align-middle">
+                            <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false"
+                              style="height: 1em; width: 1em; display: block; fill: currentcolor;">
+                              <path
+                                d="m19.5 9h-.5v-2a7 7 0 1 0 -14 0v2h-.5c-.78 0-1.5.72-1.5 1.5v12c0 .78.72 1.5 1.5 1.5h15c .78 0 1.5-.72 1.5-1.5v-12c0-.78-.72-1.5-1.5-1.5zm.5 13.5c0 .22-.28.5-.5.5h-15c-.22 0-.5-.28-.5-.5v-12c0-.22.28-.5.5-.5h1a .5.5 0 0 0 .5-.5v-2.5a6 6 0 1 1 12 0v2.5a.5.5 0 0 0 .5.5h1c .22 0 .5.28.5.5zm-8-10.5a3 3 0 0 0 -3 3c0 .83.36 1.59.94 2.15l-.9 2.16a.5.5 0 0 0 .46.69h5a .5.5 0 0 0 .46-.69l-.87-2.19c.56-.55.91-1.31.91-2.13a3 3 0 0 0 -3-3zm1.04 5.19.72 1.81h-3.51l.74-1.79a.5.5 0 0 0 -.17-.6 2 2 0 1 1 3.18-1.61c0 .64-.31 1.24-.8 1.6a.5.5 0 0 0 -.17.59zm-1.04-14.19a4 4 0 0 0 -4 4v2.5a.5.5 0 0 0 .5.5h7a .5.5 0 0 0 .5-.5v-2.5a4 4 0 0 0 -4-4zm3 6h-6v-2a3 3 0 1 1 6 0z"
+                                fill-rule="evenodd"></path>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="overflow-hidden relative">
+                      <input type="password" class="border-none w-full m-0 focus:border-teal-700" placeholder="Password"
+                        style="padding: 10px;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-4">
+                <div class="block w-full">
+                  <div class="relative z-0 block leading-tight font-semibold w-full border-none">
+                    <button type="submit"
+                      class="text-white relative bg-red-700 border-none w-full m-0 rounded hover:bg-teal-700"
+                      style="height: 46px">Login</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <div class="flex w-full h-full">
+            <div class="m-auto">
+              <div class="break-words text-base font-bold text-teal-700 m-0">
+                <button class="cursor-pointer text-left no-underline bg-transparent border-none m-0 p-0">Forgot
+                  Password?</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-4 mt-4">
+            <div class="border-b border-gray-500"></div>
+          </div>
+
+          <div>
+            <span class="break-words text-base text-gray-700 m-0">Don’t have an account?</span>
+            <div class="inline-block mx-3">
+              <span class="m-0 break-words text-base font-bold">
+                <button class="text-teal-700 cursor-pointer text-left no-underline bg-transparent border-none m-0 p-0"
+                  (click)="openSignup();">Sign up</button>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Login modal End -->
+
+<!-- Signup modal Start -->
+<div class="modal-container fixed inset-0 overflow-y-auto" style="background: rgba(0, 0, 0, 0.75); z-index: 2000;"
+  *ngIf="openSignupModal == true">
+  <div class="table w-full h-full">
+    <div class="table-cell align-middle p-16">
+      <div class="modal-box bg-white w-full relative m-auto" style="max-width: 568px;">
+        <div class="p-8">
+          <!-- close button start -->
+          <div class="mb-5">
+            <button
+              class="cursor-pointer bg-transparent text-gray-700 block border-none w-8 h-8 p-2 shadow-md rounded-full"
+              (click)="closeSignup();">
+              <svg viewBox="0 0 24 24" role="img" aria-label="Close" focusable="false"
+                style="height: 16px; width: 16px; display: block; fill: rgb(118, 118, 118);">
+                <path
+                  d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22"
+                  fill-rule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+          <!-- close button end -->
+
+          <!-- social login start -->
+          <div class="social-button">
+            <div class="mb-2">
+              <form action="" method="post">
+                <input type="hidden" name="facebook-login">
+                <button type="submit"
+                  class="cursor-pointer relative inline-block text-center w-full text-base leading-tight py-3 px-5 font-semibold text-white no-underline rounded border border-solid border-transparent bg-blue-700">
+                  <span class="justify-center flex">
+                    <div class="inline-flex self-center">
+                      <div class="mr-3">
+                        <svg viewBox="0 0 32 32" role="presentation" aria-hidden="true" focusable="false"
+                          style="height: 18px; width: 18px; display: block; fill: currentcolor;">
+                          <path
+                            d="m8 14.41v-4.17c0-.42.35-.81.77-.81h2.52v-2.08c0-4.84 2.48-7.31 7.42-7.35 1.65 0 3.22.21 4.69.64.46.14.63.42.6.88l-.56 4.06c-.04.18-.14.35-.32.53-.21.11-.42.18-.63.14-.88-.25-1.78-.35-2.8-.35-1.4 0-1.61.28-1.61 1.73v1.8h4.52c.42 0 .81.42.81.88l-.35 4.17c0 .42-.35.71-.77.71h-4.21v16c0 .42-.35.81-.77.81h-5.21c-.42 0-.8-.39-.8-.81v-16h-2.52a.78.78 0 0 1 -.78-.78"
+                            fill-rule="evenodd"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="inline-flex self-center">Log in with Facebook</div>
+                  </span>
+                </button>
+              </form>
+            </div>
+            <div class="mb-1">
+              <form action="" method="post">
+                <input type="hidden" name="facebook-login">
+                <button type="submit"
+                  class="cursor-pointer relative inline-block text-center w-full text-base leading-tight py-3 px-5 font-semibold text-gray-700 no-underline rounded border border-solid border-gray-800">
+                  <span class="justify-center flex">
+                    <div class="inline-flex self-center">
+                      <div class="mr-3">
+                        <svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false"
+                          style="height: 18px; width: 18px; display: block;">
+                          <g fill="none" fill-rule="evenodd">
+                            <path
+                              d="M9 3.48c1.69 0 2.83.73 3.48 1.34l2.54-2.48C13.46.89 11.43 0 9 0 5.48 0 2.44 2.02.96 4.96l2.91 2.26C4.6 5.05 6.62 3.48 9 3.48z"
+                              fill="#EA4335"></path>
+                            <path
+                              d="M17.64 9.2c0-.74-.06-1.28-.19-1.84H9v3.34h4.96c-.1.83-.64 2.08-1.84 2.92l2.84 2.2c1.7-1.57 2.68-3.88 2.68-6.62z"
+                              fill="#4285F4"></path>
+                            <path
+                              d="M3.88 10.78A5.54 5.54 0 0 1 3.58 9c0-.62.11-1.22.29-1.78L.96 4.96A9.008 9.008 0 0 0 0 9c0 1.45.35 2.82.96 4.04l2.92-2.26z"
+                              fill="#FBBC05"></path>
+                            <path
+                              d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.84-2.2c-.76.53-1.78.9-3.12.9-2.38 0-4.4-1.57-5.12-3.74L.97 13.04C2.45 15.98 5.48 18 9 18z"
+                              fill="#34A853"></path>
+                            <path d="M0 0h18v18H0V0z"></path>
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="inline-flex self-center">Log in with Google</div>
+                  </span>
+                </button>
+              </form>
+            </div>
+          </div>
+          <!-- social login end -->
+
+          <div class="my-4">
+            <div class="text-center overflow-hidden">
+              <span class="relative">
+                <span class="truncate text-sm font-normal text-gray-500 m-0">or</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <div class="block w-full">
+              <div class="relative z-0 block leading-tight font-semibold w-full border-none">
+                <button type="submit" class="cursor-pointer relative inline-block text-center w-full text-base leading-tight py-3 px-5 font-semibold text-white no-underline rounded border-none bg-red-700" (click)="openSignupForm();">
+                  <span class="justify-center flex">
+                    <div class="inline-flex self-center">
+                      <div class="mr-3">
+                        <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false"
+                          style="height: 18px; width: 18px; display: block; fill: currentcolor;">
+                          <path
+                            d="m22.5 4h-21c-.83 0-1.5.67-1.5 1.51v12.99c0 .83.67 1.5 1.5 1.5h20.99a1.5 1.5 0 0 0 1.51-1.51v-12.98c0-.84-.67-1.51-1.5-1.51zm.5 14.2-6.14-7.91 6.14-4.66v12.58zm-.83-13.2-9.69 7.36c-.26.2-.72.2-.98 0l-9.67-7.36h20.35zm-21.17.63 6.14 4.67-6.14 7.88zm.63 13.37 6.3-8.1 2.97 2.26c.62.47 1.57.47 2.19 0l2.97-2.26 6.29 8.1z"
+                            fill-rule="evenodd"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="inline-flex self-center">Signup with Email</div>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-4 mt-4">
+            <div class="border-b border-gray-500"></div>
+          </div>
+
+          <div>
+            <span class="break-words text-base text-gray-700 m-0">Already have an Airbnb account?</span>
+            <div class="inline-block mx-3">
+              <span class="m-0 break-words text-base font-bold">
+                <button class="text-teal-700 cursor-pointer text-left no-underline bg-transparent border-none m-0 p-0"
+                  (click)="openLogin();">Login</button>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Signup modal End -->
+
+<!-- Signup Form modal Start -->
+<div class="modal-container fixed inset-0 overflow-y-auto" style="background: rgba(0, 0, 0, 0.75); z-index: 2000;"
+  *ngIf="openSignupFormModal == true">
+  <div class="table w-full h-full">
+    <div class="table-cell align-middle p-16">
+      <div class="modal-box bg-white w-full relative m-auto" style="max-width: 568px;">
+        <div class="p-8">
+          <!-- close button start -->
+          <div class="mb-5">
+            <button
+              class="cursor-pointer bg-transparent text-gray-700 block border-none w-8 h-8 p-2 shadow-md rounded-full"
+              (click)="closeSignupForm();">
+              <svg viewBox="0 0 24 24" role="img" aria-label="Close" focusable="false"
+                style="height: 16px; width: 16px; display: block; fill: rgb(118, 118, 118);">
+                <path
+                  d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22"
+                  fill-rule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+          <!-- close button end -->
+
+          <div class="text-center">
+            <span class="break-words text-base text-gray-700 m-0">Sign up with <a href="#"
+                class="text-teal-700 font-semi-bold">Facebook</a> or <a href="#"
+                class="text-teal-700 font-semi-bold">Google</a></span>
+          </div>
+
+          <div class="my-4">
+            <div class="text-center overflow-hidden">
+              <span class="relative">
+                <span class="truncate text-sm font-normal text-gray-500 m-0">or</span>
+              </span>
+            </div>
+          </div>
+
+          <form action="" method="post">
+            <input type="hidden" name="authenticity_token">
+            <div>
+              <div class="mb-4">
+                <div class="block w-full">
+                  <div class="bg-white relative z-0 block w-full border border-solid border-gray-400 rounded"
+                    style="height: 46px">
+                    <div class="float-right text-gray-700" style="margin-right: 10px;">
+                      <div class="visible" style="height: 46px;">
+                        <div class="table relative h-full">
+                          <div class="table-cell align-middle">
+                            <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false"
+                              style="height: 1em; width: 1em; display: block; fill: currentcolor;">
+                              <path
+                                d="m22.5 4h-21c-.83 0-1.5.67-1.5 1.51v12.99c0 .83.67 1.5 1.5 1.5h20.99a1.5 1.5 0 0 0 1.51-1.51v-12.98c0-.84-.67-1.51-1.5-1.51zm.5 14.2-6.14-7.91 6.14-4.66v12.58zm-.83-13.2-9.69 7.36c-.26.2-.72.2-.98 0l-9.67-7.36h20.35zm-21.17.63 6.14 4.67-6.14 7.88zm.63 13.37 6.3-8.1 2.97 2.26c.62.47 1.57.47 2.19 0l2.97-2.26 6.29 8.1z"
+                                fill-rule="evenodd"></path>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="overflow-hidden relative">
+                      <input type="email" class="border-none w-full m-0 focus:border-teal-700"
+                        placeholder="Email Address" style="padding: 10px;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-4">
+                <div class="block w-full">
+                  <div class="bg-white relative z-0 block w-full border border-solid border-gray-400 rounded"
+                    style="height: 46px">
+                    <div class="float-right text-gray-700" style="margin-right: 10px;">
+                      <div class="visible" style="height: 46px;">
+                        <div class="table relative h-full">
+                          <div class="table-cell align-middle">
+                            <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false"
+                              style="height: 1em; width: 1em; display: block; fill: currentcolor;">
+                              <path
+                                d="m14.76 11.38a6.01 6.01 0 0 0 3.28-5.36 6.02 6.02 0 0 0 -12.04 0 6.01 6.01 0 0 0 3.27 5.35c-4.81 1.22-9.27 5.31-9.27 8.7 0 1.56 6.8 3.93 12 3.93 5.23 0 12-2.34 12-3.93 0-3.39-4.45-7.47-9.24-8.7zm-7.76-5.36a5.02 5.02 0 0 1 10.04 0c0 2.69-2.12 4.87-4.78 5-.09 0-.18-.01-.26-.01s-.16.01-.24.01c-2.65-.14-4.76-2.32-4.76-5zm15.9 14.09a3.8 3.8 0 0 1 -.64.44c-.62.36-1.5.75-2.52 1.1-2.41.83-5.18 1.35-7.74 1.35-2.55 0-5.32-.52-7.74-1.37-1.01-.35-1.9-.74-2.52-1.1-.47-.27-.74-.51-.74-.46 0-3.35 5.55-7.85 10.64-8.05.13.01.25.02.38.02.12 0 .24-.01.36-.02 5.09.22 10.62 4.71 10.62 8.05 0-.07-.02-.04-.1.04z"
+                                fill-rule="evenodd"></path>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="overflow-hidden relative">
+                      <input type="text" class="border-none w-full m-0 focus:border-teal-700" name="fname"
+                        placeholder="First name" style="padding: 10px;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-4">
+                <div class="block w-full">
+                  <div class="bg-white relative z-0 block w-full border border-solid border-gray-400 rounded"
+                    style="height: 46px">
+                    <div class="float-right text-gray-700" style="margin-right: 10px;">
+                      <div class="visible" style="height: 46px;">
+                        <div class="table relative h-full">
+                          <div class="table-cell align-middle">
+                            <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false"
+                              style="height: 1em; width: 1em; display: block; fill: currentcolor;">
+                              <path
+                                d="m14.76 11.38a6.01 6.01 0 0 0 3.28-5.36 6.02 6.02 0 0 0 -12.04 0 6.01 6.01 0 0 0 3.27 5.35c-4.81 1.22-9.27 5.31-9.27 8.7 0 1.56 6.8 3.93 12 3.93 5.23 0 12-2.34 12-3.93 0-3.39-4.45-7.47-9.24-8.7zm-7.76-5.36a5.02 5.02 0 0 1 10.04 0c0 2.69-2.12 4.87-4.78 5-.09 0-.18-.01-.26-.01s-.16.01-.24.01c-2.65-.14-4.76-2.32-4.76-5zm15.9 14.09a3.8 3.8 0 0 1 -.64.44c-.62.36-1.5.75-2.52 1.1-2.41.83-5.18 1.35-7.74 1.35-2.55 0-5.32-.52-7.74-1.37-1.01-.35-1.9-.74-2.52-1.1-.47-.27-.74-.51-.74-.46 0-3.35 5.55-7.85 10.64-8.05.13.01.25.02.38.02.12 0 .24-.01.36-.02 5.09.22 10.62 4.71 10.62 8.05 0-.07-.02-.04-.1.04z"
+                                fill-rule="evenodd"></path>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="overflow-hidden relative">
+                      <input type="text" class="border-none w-full m-0 focus:border-teal-700" name="lname"
+                        placeholder="Last name" style="padding: 10px;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-4">
+                <div class="block w-full">
+                  <div class="bg-white relative z-0 block w-full border border-solid border-gray-400 rounded"
+                    style="height: 46px">
+                    <div class="float-right text-gray-700" style="margin-right: 10px;">
+                      <div class="visible" style="height: 46px;">
+                        <div class="table relative h-full">
+                          <div class="table-cell align-middle">
+                            <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false"
+                              style="height: 1em; width: 1em; display: block; fill: currentcolor;">
+                              <path
+                                d="m19.5 9h-.5v-2a7 7 0 1 0 -14 0v2h-.5c-.78 0-1.5.72-1.5 1.5v12c0 .78.72 1.5 1.5 1.5h15c .78 0 1.5-.72 1.5-1.5v-12c0-.78-.72-1.5-1.5-1.5zm.5 13.5c0 .22-.28.5-.5.5h-15c-.22 0-.5-.28-.5-.5v-12c0-.22.28-.5.5-.5h1a .5.5 0 0 0 .5-.5v-2.5a6 6 0 1 1 12 0v2.5a.5.5 0 0 0 .5.5h1c .22 0 .5.28.5.5zm-8-10.5a3 3 0 0 0 -3 3c0 .83.36 1.59.94 2.15l-.9 2.16a.5.5 0 0 0 .46.69h5a .5.5 0 0 0 .46-.69l-.87-2.19c.56-.55.91-1.31.91-2.13a3 3 0 0 0 -3-3zm1.04 5.19.72 1.81h-3.51l.74-1.79a.5.5 0 0 0 -.17-.6 2 2 0 1 1 3.18-1.61c0 .64-.31 1.24-.8 1.6a.5.5 0 0 0 -.17.59zm-1.04-14.19a4 4 0 0 0 -4 4v2.5a.5.5 0 0 0 .5.5h7a .5.5 0 0 0 .5-.5v-2.5a4 4 0 0 0 -4-4zm3 6h-6v-2a3 3 0 1 1 6 0z"
+                                fill-rule="evenodd"></path>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="overflow-hidden relative">
+                      <input type="password" class="border-none w-full m-0 focus:border-teal-700"
+                        placeholder="Create Password" style="padding: 10px;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-4 w-full">
+                <div class="mb-0">'
+                  <div class="m-0 break-words text-base font-bold text-gray-800">Birthday</div>
+                </div>
+                <div class="mt-3 mb-4 inline-block">
+                  <div class="break-words text-sm font-normal text-gray-700 m-0">To sign up, you need to be at least 18.
+                    Other people who use Airbnb won’t see your birthday.</div>
+                </div>
+                <div style="margin-left: -8px; margin-right: -8px;">
+                  <div class="relative px-3 float-left" style="width: 41.6667%;">
+                    <div class="block w-full text-base bg-white mb-2">
+                      <div class="text-gray-700 relative border border-gray-300 rounded">
+                        <div class="overflow-hidden">
+                          <select name="" id="" class="bg-transparent block w-full border m-0 py-3 pl-3 pr-10" style="-webkit-appearance: none;">
+                            <option disabled="" value="">Month</option>
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                          </select>
+                        </div>
+                        <span class="absolute pointer-events-none" style="top: 16px; right: 16px;">
+                          <svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false"
+                            style="height: 16px; width: 16px; display: block; fill: rgb(72, 72, 72);">
+                            <path
+                              d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z"
+                              fill-rule="evenodd"></path>
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative px-3 float-left" style="width: 25%;">
+                    <div class="block w-full text-base bg-white mb-2">
+                      <div class="text-gray-700 relative border border-gray-300 rounded">
+                        <div class="overflow-hidden">
+                          <select name="" class="bg-transparent block w-full border m-0 py-3 pl-3 pr-10" style="-webkit-appearance: none;">
+                            <option disabled="" value="">Day</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                          </select>
+                        </div>
+                        <span class="absolute pointer-events-none" style="top: 16px; right: 16px;">
+                          <svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false"
+                            style="height: 16px; width: 16px; display: block; fill: rgb(72, 72, 72);">
+                            <path
+                              d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z"
+                              fill-rule="evenodd"></path>
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative px-3 float-left" style="width: 33.3333%;">
+                    <div class="block w-full text-base bg-white mb-2">
+                      <div class="text-gray-700 relative border border-gray-300 rounded">
+                        <div class="overflow-hidden">
+                          <select name="" class="bg-transparent block w-full border m-0 py-3 pl-3 pr-10" style="-webkit-appearance: none;">
+                            <option disabled="" value="">Year</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                            <option value="2007">2007</option>
+                            <option value="2006">2006</option>
+                            <option value="2005">2005</option>
+                            <option value="2004">2004</option>
+                            <option value="2003">2003</option>
+                            <option value="2002">2002</option>
+                            <option value="2001">2001</option>
+                            <option value="2000">2000</option>
+                            <option value="1999">1999</option>
+                            <option value="1998">1998</option>
+                            <option value="1997">1997</option>
+                            <option value="1996">1996</option>
+                            <option value="1995">1995</option>
+                            <option value="1994">1994</option>
+                            <option value="1993">1993</option>
+                            <option value="1992">1992</option>
+                            <option value="1991">1991</option>
+                            <option value="1990">1990</option>
+                            <option value="1989">1989</option>
+                            <option value="1988">1988</option>
+                            <option value="1987">1987</option>
+                            <option value="1986">1986</option>
+                            <option value="1985">1985</option>
+                            <option value="1984">1984</option>
+                            <option value="1983">1983</option>
+                            <option value="1982">1982</option>
+                            <option value="1981">1981</option>
+                            <option value="1980">1980</option>
+                            <option value="1979">1979</option>
+                            <option value="1978">1978</option>
+                            <option value="1977">1977</option>
+                            <option value="1976">1976</option>
+                            <option value="1975">1975</option>
+                            <option value="1974">1974</option>
+                            <option value="1973">1973</option>
+                            <option value="1972">1972</option>
+                            <option value="1971">1971</option>
+                            <option value="1970">1970</option>
+                            <option value="1969">1969</option>
+                            <option value="1968">1968</option>
+                            <option value="1967">1967</option>
+                            <option value="1966">1966</option>
+                            <option value="1965">1965</option>
+                            <option value="1964">1964</option>
+                            <option value="1963">1963</option>
+                            <option value="1962">1962</option>
+                            <option value="1961">1961</option>
+                            <option value="1960">1960</option>
+                            <option value="1959">1959</option>
+                            <option value="1958">1958</option>
+                            <option value="1957">1957</option>
+                            <option value="1956">1956</option>
+                            <option value="1955">1955</option>
+                            <option value="1954">1954</option>
+                            <option value="1953">1953</option>
+                            <option value="1952">1952</option>
+                            <option value="1951">1951</option>
+                            <option value="1950">1950</option>
+                            <option value="1949">1949</option>
+                            <option value="1948">1948</option>
+                            <option value="1947">1947</option>
+                            <option value="1946">1946</option>
+                            <option value="1945">1945</option>
+                            <option value="1944">1944</option>
+                            <option value="1943">1943</option>
+                            <option value="1942">1942</option>
+                            <option value="1941">1941</option>
+                            <option value="1940">1940</option>
+                            <option value="1939">1939</option>
+                            <option value="1938">1938</option>
+                            <option value="1937">1937</option>
+                            <option value="1936">1936</option>
+                            <option value="1935">1935</option>
+                            <option value="1934">1934</option>
+                            <option value="1933">1933</option>
+                            <option value="1932">1932</option>
+                            <option value="1931">1931</option>
+                            <option value="1930">1930</option>
+                            <option value="1929">1929</option>
+                            <option value="1928">1928</option>
+                            <option value="1927">1927</option>
+                            <option value="1926">1926</option>
+                            <option value="1925">1925</option>
+                            <option value="1924">1924</option>
+                            <option value="1923">1923</option>
+                            <option value="1922">1922</option>
+                            <option value="1921">1921</option>
+                            <option value="1920">1920</option>
+                            <option value="1919">1919</option>
+                            <option value="1918">1918</option>
+                            <option value="1917">1917</option>
+                            <option value="1916">1916</option>
+                            <option value="1915">1915</option>
+                            <option value="1914">1914</option>
+                            <option value="1913">1913</option>
+                            <option value="1912">1912</option>
+                            <option value="1911">1911</option>
+                            <option value="1910">1910</option>
+                            <option value="1909">1909</option>
+                            <option value="1908">1908</option>
+                            <option value="1907">1907</option>
+                            <option value="1906">1906</option>
+                            <option value="1905">1905</option>
+                            <option value="1904">1904</option>
+                            <option value="1903">1903</option>
+                            <option value="1902">1902</option>
+                            <option value="1901">1901</option>
+                            <option value="1900">1900</option>
+                            <option value="1899">1899</option>
+                          </select>
+                        </div>
+                        <span class="absolute pointer-events-none" style="top: 16px; right: 16px;">
+                          <svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false"
+                            style="height: 16px; width: 16px; display: block; fill: rgb(72, 72, 72);">
+                            <path
+                              d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z"
+                              fill-rule="evenodd"></path>
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <div class="m-0 break-words text-base text-gray-700">We’ll send you marketing promotions, special
+                  offers, inspiration, and policy updates via email.</div>
+              </div>
+
+              <div class="mb-4">
+                <div class="block w-full">
+                  <div class="relative z-0 block leading-tight font-semibold w-full border-none">
+                    <button type="submit"
+                      class="text-white relative bg-red-700 border-none w-full m-0 rounded hover:bg-teal-700"
+                      style="height: 46px">Sign up</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <div class="px-3 m-0 break-words text-xs text-gray-700">I don’t want to receive marketing messages from
+                  Airbnb. I can also opt out of receiving these at any time in my account settings or via the link in
+                  the message..</div>
+              </div>
+            </div>
+          </form>
+
+          <div class="mb-4 mt-4">
+            <div class="border-b border-gray-500"></div>
+          </div>
+
+          <div>
+            <span class="break-words text-lg text-gray-700 m-0">Already have an Airbnb account?</span>
+            <div class="inline-block mx-3">
+              <span class="m-0 break-words font-bold">
+                <button class="text-teal-700 cursor-pointer text-left no-underline bg-transparent border-none m-0 p-0"
+                  (click)="openLogin();">Login</button>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Signup Form modal End -->
+
+<!-- help guide sidebar start -->
+<div class="help-guide-container">
+  <div class="fixed inset-y-0 right-0 shadow-md block bg-white" style="width: 420px; z-index: 3000;" *ngIf="openHelpDialog == true">
+    <div class="text-center w-full border-b border-gray-400 p-5">
+      <div class="inline-block">
+        <div class="m-0 break-words text-base font-bold text-gray-700">Recommended Help</div>
+      </div>
+      <div class="text-gray-700 float-right">
+        <button class="p-0 m-0 cursor-pointer bg-transparent inline-block border-none w-8 h-8 p-2 shadow-md rounded-full" (click)="closeHelp();">
+          <svg viewBox="0 0 24 24" role="img" aria-label="Close" focusable="false" style="height: 16px; width: 16px; display: block; fill: currentcolor;">
+            <path d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22" fill-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="overflow-y-auto absolute w-full py-0 px-8" style="height: calc(100% - 164px);">
+      <div class="help-search">
+        <div class="h-auto pt-6 pb-4 px-0 border-none">
+          <div class="block w-full">
+            <div class="mb-3">
+              <label class="bg-transparent border-none cursor-pointer block p-0">
+                <div class="break-words text-sm font-semibold text-gray-600 m-0">
+                  Search by keyword
+                </div>
+              </label>
+            </div>
+            <div class="bg-white mb-3 text-sm relative z-0 block w-full border border-solid border-gray-500 rounded">
+              <div class="float-left" style="padding: 5px;">
+                <div class="table relative h-full">
+                  <div class="table-cell align-middle">
+                    <div class="inline-block align-middle">
+                      <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style="height: 16px; width: 16px; display: block; fill: rgb(118, 118, 118);">
+                        <path d="m10.7227 19.9083c-4.919-.706-8.336-5.266-7.63-10.185.704-4.919 5.264-8.336 10.184-7.631 4.919.706 8.336 5.265 7.632 10.185-.706 4.92-5.266 8.336-10.186 7.631m11.65 2.76-3.729-4.196c1.706-1.514 2.905-3.618 3.254-6.053.783-5.467-3.013-10.533-8.479-11.317-5.467-.784-10.534 3.013-11.316 8.48-.784 5.466 3.012 10.532 8.478 11.315 2.675.384 5.254-.329 7.283-1.798l3.762 4.233c.184.207.5.225.706.042.206-.184.225-.5.041-.706"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="relative overflow-hidden">
+                <input type="text" class="bg-transparent py-2 px-3 w-full border-none m-0" placeholder="Ex: reservation status">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-8">
+          <div class="my-4">
+            <span class="text-sm m-0 p-0 break-words text-gray-700 uppercase">Recommended articles</span>
+          </div>
+          <div class="mb-3">
+            <button class="bg-transparent text-left w-full h-full inline-block border-none m-0 p-0">
+              <h3 class="text-base font-semibold m-0 p-0 break-words text-gray-700">How do I create an account?</h3>
+              <span class="text-sm m-0 p-0 break-words text-gray-700 overflow-hidden flex" style="line-height: 1.28571em; max-height: 2.57143em;">If you don't have an Airbnb account yet, go to airbnb.com and click Sign Up. You can sign up using your email address, Facebook account, Google.</span>
+            </button>
+            <div class="mt-1">
+              <div class="flex text-teal-700 text-sm">
+                <div class="inline-flex self-center">Read more</div>
+                <div class="inline-flex self-center pl-2">
+                  <svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 10px; width: 10px; display: block; fill: currentcolor;">
+                    <path d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <button class="bg-transparent text-left w-full h-full inline-block border-none m-0 p-0">
+              <h3 class="text-base font-semibold m-0 p-0 break-words text-gray-700">How do I create an account?</h3>
+              <span class="text-sm m-0 p-0 break-words text-gray-700 overflow-hidden flex" style="line-height: 1.28571em; max-height: 2.57143em;">If you don't have an Airbnb account yet, go to airbnb.com and click Sign Up. You can sign up using your email address, Facebook account, Google.</span>
+            </button>
+            <div class="mt-1">
+              <div class="flex text-teal-700 text-sm">
+                <div class="inline-flex self-center">Read more</div>
+                <div class="inline-flex self-center pl-2">
+                  <svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 10px; width: 10px; display: block; fill: currentcolor;">
+                    <path d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <button class="bg-transparent text-left w-full h-full inline-block border-none m-0 p-0">
+              <h3 class="text-base font-semibold m-0 p-0 break-words text-gray-700">How do I create an account?</h3>
+              <span class="text-sm m-0 p-0 break-words text-gray-700 overflow-hidden flex" style="line-height: 1.28571em; max-height: 2.57143em;">If you don't have an Airbnb account yet, go to airbnb.com and click Sign Up. You can sign up using your email address, Facebook account, Google.</span>
+            </button>
+            <div class="mt-1">
+              <div class="flex text-teal-700 text-sm">
+                <div class="inline-flex self-center">Read more</div>
+                <div class="inline-flex self-center pl-2">
+                  <svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 10px; width: 10px; display: block; fill: currentcolor;">
+                    <path d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <button class="bg-transparent text-left w-full h-full inline-block border-none m-0 p-0">
+              <h3 class="text-base font-semibold m-0 p-0 break-words text-gray-700">How do I create an account?</h3>
+              <span class="text-sm m-0 p-0 break-words text-gray-700 overflow-hidden flex" style="line-height: 1.28571em; max-height: 2.57143em;">If you don't have an Airbnb account yet, go to airbnb.com and click Sign Up. You can sign up using your email address, Facebook account, Google.</span>
+            </button>
+            <div class="mt-1">
+              <div class="flex text-teal-700 text-sm">
+                <div class="inline-flex self-center">Read more</div>
+                <div class="inline-flex self-center pl-2">
+                  <svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 10px; width: 10px; display: block; fill: currentcolor;">
+                    <path d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <button class="bg-transparent text-left w-full h-full inline-block border-none m-0 p-0">
+              <h3 class="text-base font-semibold m-0 p-0 break-words text-gray-700">How do I create an account?</h3>
+              <span class="text-sm m-0 p-0 break-words text-gray-700 overflow-hidden flex" style="line-height: 1.28571em; max-height: 2.57143em;">If you don't have an Airbnb account yet, go to airbnb.com and click Sign Up. You can sign up using your email address, Facebook account, Google.</span>
+            </button>
+            <div class="mt-1">
+              <div class="flex text-teal-700 text-sm">
+                <div class="inline-flex self-center">Read more</div>
+                <div class="inline-flex self-center pl-2">
+                  <svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 10px; width: 10px; display: block; fill: currentcolor;">
+                    <path d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <button class="bg-transparent text-left w-full h-full inline-block border-none m-0 p-0">
+              <h3 class="text-base font-semibold m-0 p-0 break-words text-gray-700">How do I create an account?</h3>
+              <span class="text-sm m-0 p-0 break-words text-gray-700 overflow-hidden flex" style="line-height: 1.28571em; max-height: 2.57143em;">If you don't have an Airbnb account yet, go to airbnb.com and click Sign Up. You can sign up using your email address, Facebook account, Google.</span>
+            </button>
+            <div class="mt-1">
+              <div class="flex text-teal-700 text-sm">
+                <div class="inline-flex self-center">Read more</div>
+                <div class="inline-flex self-center pl-2">
+                  <svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 10px; width: 10px; display: block; fill: currentcolor;">
+                    <path d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <button class="bg-transparent text-left w-full h-full inline-block border-none m-0 p-0">
+              <h3 class="text-base font-semibold m-0 p-0 break-words text-gray-700">How do I create an account?</h3>
+              <span class="text-sm m-0 p-0 break-words text-gray-700 overflow-hidden flex" style="line-height: 1.28571em; max-height: 2.57143em;">If you don't have an Airbnb account yet, go to airbnb.com and click Sign Up. You can sign up using your email address, Facebook account, Google.</span>
+            </button>
+            <div class="mt-1">
+              <div class="flex text-teal-700 text-sm">
+                <div class="inline-flex self-center">Read more</div>
+                <div class="inline-flex self-center pl-2">
+                  <svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 10px; width: 10px; display: block; fill: currentcolor;">
+                    <path d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white absolute bottom-0 w-full py-3 px-6">
+      <div class="mb-5">
+        <a href="#" class="py-3 inline-block text-sm font-semibold relative text-center cursor-pointer w-full no-underline rounded bg-teal-700 text-white">Visit the Help Center</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- help guide sidebar end -->
+
 <!-- Hero Area Start -->
 <div id="landingpage-intro">
   <header class="intro-header w-full h-20 absolute" role="banner">
@@ -73,7 +977,7 @@
               </li>
               <li class="table-cell">
                 <div class="relative">
-                  <button class="intro-nav-links-button h-20 text-sm font-medium inline-block relative whitespace-no-wrap text-white bg-transparent border-none border-transparent no-underline m-0 py-0 px-2">
+                  <button class="intro-nav-links-button h-20 text-sm font-medium inline-block relative whitespace-no-wrap text-white bg-transparent border-none border-transparent no-underline m-0 py-0 px-2" (click)="openHelp();">
                     <div class="h-full align-middle intro-nav-links-button-inner">
                       <div class="inline-block align-middle p-2 leading-none">
                         Help
@@ -84,7 +988,7 @@
               </li>
               <li class="table-cell">
                 <div class="relative">
-                  <button class="intro-nav-links-button h-20 text-sm font-medium inline-block relative whitespace-no-wrap text-white bg-transparent border-none border-transparent no-underline m-0 py-0 px-2">
+                  <button class="intro-nav-links-button h-20 text-sm font-medium inline-block relative whitespace-no-wrap text-white bg-transparent border-none border-transparent no-underline m-0 py-0 px-2" (click)="openSignup();">
                     <div class="h-full align-middle intro-nav-links-button-inner">
                       <div class="inline-block align-middle p-2 leading-none">
                         Sign up
@@ -95,7 +999,7 @@
               </li>
               <li class="table-cell">
                 <div class="relative">
-                  <button class="intro-nav-links-button h-20 text-sm font-medium inline-block relative whitespace-no-wrap text-white bg-transparent border-none border-transparent no-underline m-0 py-0 px-2">
+                  <button class="intro-nav-links-button h-20 text-sm font-medium inline-block relative whitespace-no-wrap text-white bg-transparent border-none border-transparent no-underline m-0 py-0 px-2" (click)="openLogin();">
                     <div class="h-full align-middle intro-nav-links-button-inner">
                       <div class="inline-block align-middle p-2 leading-none">
                         Log in
@@ -110,6 +1014,7 @@
       </div>
     </div>
   </header>
+  
   <div class="landingpage-content">
     <div class="landingpage-form">
       <div class="landing-form-container">

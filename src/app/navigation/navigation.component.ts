@@ -10,6 +10,7 @@ export class NavigationComponent implements OnInit {
   openLoginModal: boolean = false;
   openSignupModal: boolean = false;
   openSignupFormModal: boolean = false;
+  openHelpDialog: boolean = false;
 
   constructor() { }
 
@@ -23,10 +24,7 @@ export class NavigationComponent implements OnInit {
     if (this.openSignupModal = true) {
       this.openSignupModal = false;
     }
-
-    if (this.openSignupFormModal = true) {
-      this.openSignupModal = false;
-    }
+    
   }
 
   closeLogin() {
@@ -39,10 +37,6 @@ export class NavigationComponent implements OnInit {
     if (this.openLoginModal = true) {
       this.openLoginModal = false;
     }
-
-    if (this.openSignupFormModal = true) {
-      this.openSignupModal = false;
-    }
   }
 
   closeSignup() {
@@ -51,10 +45,22 @@ export class NavigationComponent implements OnInit {
 
   openSignupForm() {
     this.openSignupFormModal = true;
+
+    if (this.openSignupModal = true) {
+      this.openSignupModal = false;
+    }
   }
 
   closeSignupForm() {
     this.openSignupFormModal = false;
+  }
+
+  openHelp() {
+    this.openHelpDialog = true;
+  }
+
+  closeHelp() {
+    this.openHelpDialog = false;
   }
 
 }
