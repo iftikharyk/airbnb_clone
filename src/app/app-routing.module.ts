@@ -5,11 +5,12 @@ import { StaysComponent } from './pages/stays/stays.component';
 import { ExperiencesComponent } from './pages/experiences/experiences.component';
 import { RestaurantsComponent } from './pages/restaurants/restaurants.component';
 import { AdventuresComponent } from './pages/adventures/adventures.component';
+import { RoomsComponent } from './pages/rooms/rooms.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomepageComponent
+    component: RoomsComponent
   },
   {
     path: 'stays',
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'restaurants',
     component: RestaurantsComponent
+  },
+  {
+    path: 'rooms',
+    component: RoomsComponent
   }
 ];
 
